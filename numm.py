@@ -75,7 +75,6 @@ def numloop(n):
 	return n
 			
 
-print(namer(4))
 trange = input('Range? ')
 j = 0
 for i in range(int(trange)):
