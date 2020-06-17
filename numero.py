@@ -72,7 +72,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-x = np.linspace(0,10**3,10**3-1)
+x = np.linspace(0,10**3,10**3)
 
 y = namelength(x)
 
