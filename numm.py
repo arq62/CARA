@@ -1,5 +1,8 @@
+# Function to output the name of a number
 def namer(inp):
-	
+	if inp == 0:
+		return 'zero'
+	else:
 		numstr = str(inp)
 		numstr.lstrip('0')
 
@@ -62,33 +65,23 @@ def namer(inp):
 
 		return nom
 
+# Function to find out length of the spelling of the name.
 def namelength(s):
 	k = namer(s)
 	nomlen = len(k) - k.count(' ')
 	return nomlen
 
+# Function to output the final number obtained after algorithm is repeated sufficiently (i.e. before entering an infinite loop)
+def numloop(n):
+	while namelength(n) != n:
+		n = namelength(n)
+	return n
+			
+trange = input('Range? ')
+j = 0
+#Loop checking convergence for each integer and giving the number of integers satisfying it 
+for i in range(int(trange)):
+	if numloop(i) == 4:
+		j +=1
 
-import matplotlib.pyplot as plt
-import numpy as np
-
-# 100 linearly spaced numbers
-x = np.linspace(0,10**3,10**3-1)
-
-# the function, which is y = x^2 here
-y = namelength(x)
-
-# setting the axes at the centre
-fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-ax.spines['left'].set_position('center')
-ax.spines['bottom'].set_position('zero')
-ax.spines['right'].set_color('none')
-ax.spines['top'].set_color('none')
-ax.xaxis.set_ticks_position('bottom')
-ax.yaxis.set_ticks_position('left')
-
-# plot the function
-plt.plot(x,y, 'r')
-
-# show the plot
-plt.show()
+print('CARA is valid for {} numbers in given range.'.format(j))
